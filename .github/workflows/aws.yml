@@ -41,9 +41,8 @@ jobs:
                 "aws s3 cp s3://omnia-app/'${ARCHIVE}' /tmp/'${ARCHIVE}'"
                 , "mkdir -p /tmp/app_extract",
                 "tar -xvf /tmp/'${ARCHIVE}' -C /tmp/app_extract",
-                "rsync -av  /tmp/app_extract/ /var/www/html/",
-                "chown -R apache:apache /var/www/html",
-                "ln -sfn /wp-content/uploads /var/www/html/wp-content/uploads"]' \
+                "rsync -av --links --exclude=wp-content/uploads /tmp/app_extract/ /var/www/html/",
+                "chown -R apache:apache /var/www/html"]' \
             --region us-east-1
 
 
