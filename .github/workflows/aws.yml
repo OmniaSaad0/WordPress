@@ -36,7 +36,7 @@ jobs:
           echo "Deploying $ARCHIVE to EC2s with tag Role=wordpress-app..."
           aws ssm send-command \
             --document-name "AWS-RunShellScript" \
-            --targets "Key=tag:Name,Values=omnia-app" \
+            --targets "Key=tag:Role,Values=omnia-app" \
             --comment "extract build $ARCHIVE" \
             --parameters '{
               "commands": [
