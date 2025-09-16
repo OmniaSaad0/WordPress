@@ -37,7 +37,7 @@ jobs:
             --document-name "AWS-RunShellScript" \
             --targets "Key=tag:Name,Values=omnia-app" \
             --comment "test command" \
-            --parameters 'commands=["aws s3 cp s3://omnia-app/'${ARCHIVE}' /tmp/'${ARCHIVE}',
+            --parameters 'commands=["aws s3 cp s3://omnia-app/'${ARCHIVE}' /tmp/'${ARCHIVE}'",
                 "mkdir -p /tmp/app_extract",
                 "tar -xvf /tmp/'${ARCHIVE}' -C /tmp/app_extract",
                 "rsync -av --delete /tmp/app_extract/ /var/www/html/",
