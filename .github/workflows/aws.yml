@@ -38,6 +38,6 @@ jobs:
             --parameters 'commands=[
                 "aws s3 cp s3://omnia-app/${ARCHIVE} /tmp/${ARCHIVE}"
               ]' \
-            --targets "Key=tag:Role,Values=omnia-app" \
+            --targets "Key=instanceids,Values=i-047b0f2f934e80243" \
             --region us-east-1
 
