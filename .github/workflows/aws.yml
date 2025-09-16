@@ -42,8 +42,10 @@ jobs:
           #   --region us-east-1
           aws ssm send-command \
             --document-name "AWS-RunShellScript" \
-            --targets "Key=InstanceIds,Values=i-047b0f2f934e80243" \
+            --targets "Key=tag:Role,Values=omnia-app" \
+            --comment "test command" \
             --parameters 'commands=["mkdir /testssm"]' \
             --region us-east-1
+
 
 
