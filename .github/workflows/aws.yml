@@ -35,12 +35,9 @@ jobs:
         run: |
           aws ssm send-command \
             --document-name "AWS-RunShellScript" \
-            --targets "Key=tag:Role,Values=omnia-app" \
-            --comment "extract build $ARCHIVE" \
-            --parameters '{
-              "commands": [
+            --parameters 'commands=[
                 "aws s3 cp s3://omnia-app/${ARCHIVE} /tmp/${ARCHIVE}"
-              ]
-            }' \
+              ]' \
+            --targets "Key=tag:Role,Values=omnia-app" \
             --region us-east-1
 
