@@ -44,7 +44,7 @@ jobs:
             --document-name "AWS-RunShellScript" \
             --targets "Key=tag:Role,Values=omnia-app" \
             --comment "test command" \
-            --parameters 'commands=["aws s3 cp s3://omnia-app/${ARCHIVE} /tmp/${ARCHIVE}"]' \
+            --parameters 'commands=["aws s3 cp s3://omnia-app/$ARCHIVE /tmp/$ARCHIVE"]' \
             --region us-east-1
 
 
