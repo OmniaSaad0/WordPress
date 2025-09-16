@@ -42,7 +42,7 @@ jobs:
                 , "mkdir -p /tmp/app_extract",
                 "tar -xvf /tmp/'${ARCHIVE}' -C /tmp/app_extract",
                 "rsync -av --delete /tmp/app_extract/ /var/www/html/",
-                "chown -R apache:apache /var/www/html || true""]' \
+                "chown -R apache:apache /var/www/html]' \
             --region us-east-1
 
 
