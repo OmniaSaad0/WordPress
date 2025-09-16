@@ -33,11 +33,17 @@ jobs:
 
       - name: Download archive and extract it
         run: |
+          # aws ssm send-command \
+          #   --document-name "AWS-RunShellScript" \
+          #   --parameters 'commands=[
+          #       "aws s3 cp s3://omnia-app/${ARCHIVE} /tmp/${ARCHIVE}"
+          #     ]' \
+          #   --targets "Key=instanceIds,Values=i-047b0f2f934e80243" \
+          #   --region us-east-1
           aws ssm send-command \
             --document-name "AWS-RunShellScript" \
-            --parameters 'commands=[
-                "aws s3 cp s3://omnia-app/${ARCHIVE} /tmp/${ARCHIVE}"
-              ]' \
-            --targets "Key=instanceIds,Values=i-047b0f2f934e80243" \
+            --targets "Key=InstanceIds,Values=i-047b0f2f934e80243" \
+            --parameters 'commands=["mkdir /testssm"]' \
             --region us-east-1
+
 
