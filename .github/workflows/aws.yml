@@ -14,7 +14,7 @@ jobs:
         run: |
           TIMESTAMP=$(date -u +%Y%m%d_%H%M%S)
           ARCHIVE=app_${TIMESTAMP}.tar.gz
-          tar --exclude=.git --exclude=.github --exclude=.gitignore -czf $ARCHIVE .
+          git archive --format=tar.gz -o $ARCHIVE HEAD
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
