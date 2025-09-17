@@ -40,7 +40,9 @@ jobs:
                 , "mkdir -p /tmp/app_extract",
                 "tar -xvf /tmp/'${ARCHIVE}' -C /tmp/app_extract",
                 "rsync -av --links --exclude='wp-content/uploads' /tmp/app_extract/ /var/www/html/",
-                "chown -R apache:apache /var/www/html"]' \
+                "chown -R apache:apache /var/www/html",
+                "rm -rf /var/www/html/wp-content/uploads",
+                ln -sfn /wp-content/uploads /var/www/html/wp-content/uploads]' \
             --region us-east-1
 
 
