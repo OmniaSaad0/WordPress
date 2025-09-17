@@ -45,5 +45,3 @@ jobs:
                 "chown -R apache:apache /var/www/html"]' \
             --region us-east-1
 
-
-
